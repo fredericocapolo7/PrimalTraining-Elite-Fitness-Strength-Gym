@@ -1,0 +1,371 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS & VARIÁVEIS
+   ========================================================================== */
+@import url('https://googleapis.com');
+
+:root {
+    /* Palete de Cores */
+    --clr-brand: #808CFD;
+    --clr-brand-light: #E9ECFF;
+    --clr-text-dark: #1A1A1A;
+    --clr-text-muted: #6C6868;
+    --clr-white: #FFFFFF;
+    
+    /* Fontes */
+    --ff-logo: "Lobster", sans-serif;
+    --ff-base: "Roboto", sans-serif;
+    
+    /* Transições Suaves */
+    --transition-fast: all 0.3s ease;
+    
+    /* Layout */
+    --nav-height: 90px;
+}
+
+/* Reset Moderno */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--ff-base);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--clr-text-dark);
+    background-color: var(--clr-white);
+    padding-top: var(--nav-height);
+    overflow-x: hidden;
+}
+
+/* Tipografia Proporcional (Estilo Premium) */
+h1, h2, h3, h4 {
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Elementos Globais */
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ==========================================================================
+   2. COMPONENTES REUTILIZÁVEIS (BOTÕES & UTILITÁRIOS)
+   ========================================================================== */
+.bg-violeta1 { background-color: var(--clr-brand-light); }
+.bg-violeta2 { background-color: var(--clr-brand); }
+
+/* Links de Texto Padrão (HOME, ABOUT, VIEW CLASSES) */
+.btn, .btn3 {
+    font-weight: 700;
+    position: relative;
+    padding: 4px 0;
+}
+
+.btn::after, .btn3::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--clr-brand);
+    transition: var(--transition-fast);
+}
+
+.btn:hover::after, .btn3:hover::after {
+    width: 100%;
+}
+
+/* Botões Sólidos (CTA - Call To Action) */
+.btn_own, .btn2 {
+    display: inline-block;
+    color: var(--clr-white);
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px; /* Bordas arredondadas profissionais */
+    box-shadow: 0 4px 15px rgba(128, 140, 253, 0.3);
+}
+
+.btn_own:hover, .btn2:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(128, 140, 253, 0.5);
+    background-color: var(--clr-text-dark);
+}
+
+/* Bordas Utilitárias Globais */
+.border { border-top: 2px solid var(--clr-text-muted); }
+.bottom { 
+    border-top: 2px solid var(--clr-text-muted); 
+    border-bottom: 2px solid var(--clr-text-muted); 
+}
+
+/* ==========================================================================
+   3. ESTRUTURA DO LAYOUT (SECCÕES)
+   ========================================================================== */
+
+/* Header & Menu */
+.naver {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4%;
+    position: fixed;
+    height: var(--nav-height);
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(108, 104, 104, 0.2);
+    backdrop-filter: blur(10px); /* Efeito translúcido profissional */
+}
+
+.naver h1 {
+    font-family: var(--ff-logo);
+    font-size: 1.8rem;
+    text-transform: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Hero Section (Seção 1) */
+.section1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    text-align: center;
+    background: radial-gradient(circle, #fcfcff 0%, #edefff 100%);
+    padding: 2rem;
+}
+
+.live_better {
+    font-size: clamp(2.5rem, 6vw, 5rem); /* Tamanho de letra fluido adaptável */
+    color: var(--clr-brand);
+    line-height: 1.1;
+}
+
+#train {
+    color: var(--clr-text-dark);
+    display: block;
+}
+
+/* Container 2 (About Us Flex) */
+.container2 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.img1 {
+    background: url('../img/pexels1.jpg') no-repeat center/cover;
+    min-height: 450px;
+    flex: 1 1 500px;
+}
+
+.committed {
+    flex: 1 1 400px;
+    padding: 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.committed h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.comi_p {
+    color: var(--clr-text-muted);
+    margin-bottom: 2rem;
+}
+
+.comi_2 {
+    font-weight: 700;
+    color: var(--clr-brand);
+    align-self: flex-start;
+}
+
+/* Container 3 (Features) */
+.container3 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.guided, .dynamic {
+    flex: 1 1 350px;
+    padding: 4rem 3rem;
+}
+
+.guided { border-right: 2px solid var(--clr-text-muted); }
+
+.container3 h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.py-11 { color: var(--clr-text-muted); }
+
+.img2 {
+    background: url('../img/img2.jpg') no-repeat center/cover;
+    flex: 1 1 300px;
+    min-height: 350px;
+}
+
+/* Join Community Bar */
+.container4 {
+    padding: 6rem 2rem;
+    text-align: center;
+    background-color: var(--clr-text-dark);
+    color: var(--clr-white);
+}
+
+.join { font-size: clamp(2rem, 5vw, 4rem); }
+.community { color: var(--clr-brand); }
+
+/* Container 5 (Potential) */
+#container5 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filho5 {
+    flex: 1 1 450px;
+    padding: 5rem 3rem;
+}
+
+.filho5 > h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.py23 {
+    padding: 1.5rem 0;
+}
+
+.py23 h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.py23 p { color: var(--clr-text-muted); }
+
+.action-links { margin-top: 2rem; }
+
+.img3 {
+    background: url('../img/img5.jpg') no-repeat center/cover;
+    flex: 1 1 500px;
+    min-height: 450px;
+}
+
+/* Seção 6 (Manifesto CTA) */
+.filho6 {
+    background-color: var(--clr-brand);
+    color: var(--clr-white);
+    text-align: center;
+    padding: 6rem 2rem;
+}
+
+.filho6 h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.filho6 p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   4. FOOTER E INFORMAÇÕES DE CONTACTO
+   ========================================================================== */
+#container7 {
+    background-color: #111111;
+    color: #EEEEEE;
+    padding: 5rem 4%;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.footer-content > * {
+    flex: 1 1 250px;
+}
+
+#container7 h3 {
+    font-size: 1.1rem;
+    color: var(--clr-brand);
+    margin-bottom: 1.5rem;
+}
+
+#container7 li {
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#container7 address li {
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+#container7 a:hover {
+    color: var(--clr-brand);
+}
+
+.day { color: #A0A0A0; }
+
+/* Bottom Copyright */
+.footer-bottom {
+    text-align: center;
+    padding: 2rem 0 0 0;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    color: #777777;
+}
+
+/* ==========================================================================
+   5. RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    body { padding-top: 70px; --nav-height: 70px; }
+    
+    .naver { padding: 0 6%; }
+    .nav-links { gap: 15px; font-size: 0.85rem; }
+    .btn_own { padding: 0.5rem 1rem; }
+    
+    .container3 .guided { border-right: none; border-bottom: 2px solid var(--clr-text-muted); }
+    
+    .committed, .guided, .dynamic, .filho5 {
+        padding: 3rem 1.5rem;
+    }
+}
